@@ -2,8 +2,40 @@
 <html>
     <head>
         <title>{% block title %}{% endblock title %}</title>
+        <style>
+            * { box-sizing: border-box; margin: 0; padding: 0; }
+            body { background-color: #CCCCEE; }
+            .header { background-color: #444466; color: #CCCCEE; padding: 10px; }
+            .sleeve { max-width: 900px; margin: auto; }
+        </style>
     </head>
     <body>
-        {% block body %}{% endblock body %}
+    {% block body %}
+
+        {% block headertag %}
+        <div class="header">
+        {% block header %}
+
+            <div class="sleeve">
+                <h1>The New Website</h1>
+            </div>
+
+        {% endblock header %}
+        </div>
+        {% endblock headertag %}
+
+        {% block workspacetag %}
+        <div class="workspace">
+        {% block workspace %}
+
+            <div class="sleeve">
+                {% block document %}{% endblock document %}
+            </div>
+
+        {% endblock workspace %}
+        </div>
+        {% endblock workspacetag %}
+
+    {% endblock body %}
     </body>
 </html>

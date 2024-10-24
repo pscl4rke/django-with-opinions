@@ -8,6 +8,7 @@ As understood by `django-admin startproject --template`.
 Opinions:
 
 * Jinja is better than Django's own templating.
+* You want a basic theme/layout to get started.
 
 To use:
 
