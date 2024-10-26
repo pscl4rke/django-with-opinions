@@ -8,6 +8,7 @@ As understood by `django-admin startproject --template`.
 Opinions:
 
 * Makefiles are handy for development.
+* Environment variables are better than hardcoding.
 * Jinja is better than Django's own templating.
 * You want a basic theme/layout to get started.
 * There should be pages for 404, 500, etc.

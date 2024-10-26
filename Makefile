@@ -8,5 +8,6 @@ usage:
 	@echo "Usage:"
 	@sed -ne 's/^/  /;/@sed/!s/## //p' $(MAKEFILE_LIST)
 
-run-with-defaults:		## Run a local webserver
+run-with-defaults: export DEBUG=True
+run-with-defaults:	## Run a local webserver
 	./manage.py runserver

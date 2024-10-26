@@ -14,6 +14,7 @@ https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/
 """
 
 
+import os
 from pathlib import Path
 
 
@@ -33,9 +34,11 @@ applogging.initialise()
 SECRET_KEY = "{{ secret_key }}"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", "False").lower().startswith("t")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    #"localhost",
+]
 
 
 # Application definition
