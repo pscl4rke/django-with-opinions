@@ -21,6 +21,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Set up logging ASAP in case processing this file generates messages
+LOGGING_CONFIG = None  # only do our own logging config, not django's
 from . import applogging
 applogging.initialise()
 
