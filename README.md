@@ -14,13 +14,14 @@ Opinions:
 * There should be pages for 404, 500, etc.
 * No favicons unless explicitly set.
 * Lean into logging. Seriously!
+* Pyflakes is quick and useful.
 
 To use:
 
     $ mkdir /path/to/venvs
     $ python3 -m venv foobar
     $ source ./foobar/bin/activate
-    $ pip install django jinja2
+    $ pip install django jinja2 pyflakes
 
     $ mkdir /path/to/my-foobar-codebase
     $ cd /path/to/my-foobar-codebase

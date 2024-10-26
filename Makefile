@@ -17,4 +17,5 @@ run-with-defaults:	## Run a local webserver
 
 
 test:	## Run the full test suite
+	pyflakes .
 	./manage.py test
