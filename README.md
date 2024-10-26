@@ -11,6 +11,8 @@ Opinions:
 * Jinja is better than Django's own templating.
 * You want a basic theme/layout to get started.
 * There should be pages for 404, 500, etc.
+* No favicons unless explicitly set.
+* Lean into logging. Seriously!
 
 To use:
 
