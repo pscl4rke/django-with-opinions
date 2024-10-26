@@ -1,5 +1,8 @@
 
 
+import logging
+LOG = logging.getLogger(__name__)
+
 from django.http import HttpRequest as Req
 from django.http import HttpResponse as Rsp
 from django.shortcuts import render
@@ -20,4 +23,5 @@ def error_500(req: Req) -> Rsp:
 
 
 def home(req: Req) -> Rsp:
+    LOG.info("Home page requested")
     return render(req, "{{ project_name }}/home.html", {})
