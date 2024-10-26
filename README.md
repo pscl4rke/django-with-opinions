@@ -15,13 +15,14 @@ Opinions:
 * No favicons unless explicitly set.
 * Lean into logging. Seriously!
 * Pyflakes is quick and useful.
+* It's good to test and get coverage stats.
 
 To use:
 
     $ mkdir /path/to/venvs
     $ python3 -m venv foobar
     $ source ./foobar/bin/activate
-    $ pip install django jinja2 pyflakes
+    $ pip install django jinja2 pyflakes coverage
 
     $ mkdir /path/to/my-foobar-codebase
     $ cd /path/to/my-foobar-codebase
