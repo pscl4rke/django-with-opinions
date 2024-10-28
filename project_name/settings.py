@@ -14,10 +14,11 @@ https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/
 """
 
 
-from typing import List
+from typing import Any, Dict, List
 
 import os
 from pathlib import Path
+from urllib.parse import urlparse
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -100,10 +101,22 @@ WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+database = urlparse(os.environ["DATABASE"])
+# export DATABASE=sqlite3::memory:
+# export DATABASE=sqlite3:relativefile.db
+# export DATABASE=sqlite3:/path/to/absolutefile.db
+# export DATABASE=mysql://username:password@localhost/dbname
+DATABASES: Dict[str, Dict[str, Any]] = {
+    "default": {
+        "ENGINE": "django.db.backends.%s" % database.scheme,
+        "HOST": database.hostname,
+        "PORT": database.port,
+        "USER": database.username,
+        "PASSWORD": database.password,
+        "NAME": database.path,
+        "OPTIONS": {
+            #"read_default_file": "/path/to/my.cnf",  # for mysql
+        },
     }
 }
 
