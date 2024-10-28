@@ -14,6 +14,8 @@ https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/
 """
 
 
+from typing import List
+
 import os
 from pathlib import Path
 
@@ -38,7 +40,7 @@ SECRET_KEY = "{{ secret_key }}"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False").lower().startswith("t")
 
-ALLOWED_HOSTS = [
+ALLOWED_HOSTS: List[str] = [
     #"localhost",
 ]
 

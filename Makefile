@@ -18,6 +18,7 @@ run-with-defaults:	## Run a local webserver
 
 test:	## Run the full test suite
 	pyflakes .
+	mypy .
 	coverage run ./manage.py test
 	coverage report -m --skip-covered
 
