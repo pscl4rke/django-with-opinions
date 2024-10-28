@@ -23,4 +23,4 @@ test:	## Run the full test suite
 
 
 migrations: ## Create any new migration files
-    ./manage.py makemigrations
+	./manage.py makemigrations
