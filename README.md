@@ -36,4 +36,12 @@ To use:
     $ rm README.md
     $ pip freeze > requirements.txt
 
+Roadmap:
+
+* Need to decide how to handle journald (inc cronjobs)
+and whether `priorityprefix` should always be used.
+* Need to decide how to handle adding request (and maybe session)
+identifiers to some kind of logging context,
+and probably pull the id from nginx or equivalent.
+
 
