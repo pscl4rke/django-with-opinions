@@ -20,3 +20,7 @@ test:	## Run the full test suite
 	pyflakes .
 	coverage run ./manage.py test
 	coverage report -m --skip-covered
+
+
+migrations: ## Create any new migration files
+    ./manage.py makemigrations
