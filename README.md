@@ -30,6 +30,7 @@ To use:
     $ cd /path/to/my-foobar-codebase
     $ django-admin startproject \
         --template /path/to/this/directory \
+        --extension py,cfg \
         foobar .
 
     $ rm README.md
