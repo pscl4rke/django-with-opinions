@@ -23,5 +23,5 @@ def error_500(req: Req) -> Rsp:
 
 
 def home(req: Req) -> Rsp:
-    LOG.info("Home page requested")
+    LOG.info("Home page requested")  # also used in test suite
     return render(req, "{{ project_name }}/home.html", {})
