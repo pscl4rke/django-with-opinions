@@ -17,6 +17,7 @@ Opinions:
 * Pyflakes is quick and useful.
 * It's good to test and get coverage stats.
 * Type-checking keep you sane, despite Django hating it.
+* 502 errors should look nice.
 
 To use:
 
@@ -24,7 +25,7 @@ To use:
     $ python3 -m venv foobar
     $ source ./foobar/bin/activate
     $ pip install django jinja2 pyflakes coverage utterless \
-                  mypy django-stubs
+                  mypy django-stubs django-downpage
 
     $ mkdir /path/to/my-foobar-codebase
     $ cd /path/to/my-foobar-codebase

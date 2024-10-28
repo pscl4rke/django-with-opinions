@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "downpage",
     "{{ project_name }}",
 ]
 
@@ -156,6 +157,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/{{ docs_version }}/howto/static-files/
 
 STATIC_URL = 'static/'
+#STATIC_ROOT = "/path/to/collect/assets/into"
+
+DOWNPAGE_PAGES = [
+    ("502.html", "{{ project_name }}/error.html",
+        {"status_code": "502", "status_message": "Bad Gateway"}),
+    ("503.html", "{{ project_name }}/error.html",
+        {"status_code": "503", "status_message": "Service Unavailable"}),
+    ("504.html", "{{ project_name }}/error.html",
+        {"status_code": "504", "status_message": "Gateway Timeout"}),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#default-auto-field
