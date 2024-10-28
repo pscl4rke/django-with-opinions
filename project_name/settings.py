@@ -25,6 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 LOGGING_CONFIG = None  # only do our own logging config, not django's
 from . import applogging
 applogging.initialise()
+# Absorb log messages if the test passes, show them if it fails:
+TEST_RUNNER = "utterless.contrib.django.DiscoverRunner"
 
 
 # Quick-start development settings - unsuitable for production
