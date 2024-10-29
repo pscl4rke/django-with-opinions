@@ -28,7 +28,11 @@
                 </span>
                 <span style="font-family: sans-serif">
                     {% block headerright %}
-                    {{ request.user }}
+                    {% if request.user.is_authenticated %}
+                        {{ request.user }}
+                    {% else %}
+                        <a href="{{ url("auth:login") }}">Log In</a>
+                    {% endif %}
                     {% endblock headerright %}
                 </span>
             </div>

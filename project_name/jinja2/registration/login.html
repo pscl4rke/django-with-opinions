@@ -1,0 +1,34 @@
+{% extends "theme/centre.html" %}
+
+{% block title %}Log In{% endblock title %}
+
+{% block incentre %}
+
+<h1>Log In</h1>
+
+{% if form.non_field_errors() %}
+{% for error in form.non_field_errors() %}
+<p>
+    <b>{{ error }}</b>
+</p>
+{% endfor %}
+{% endif %}
+
+<form method="post" id="login-form">
+    {{ csrf_input }}
+    <div class="form-row">
+        {{ form.username.errors }}
+        {{ form.username.label_tag() }} {{ form.username }}
+    </div>
+    <div class="form-row">
+        {{ form.password.errors }}
+        {{ form.password.label_tag() }} {{ form.password }}
+        <input type="hidden" name="next" value="{{ next }}">
+    </div>
+    <div class="submit-row">
+        <input type="submit" value="Log In">
+    </div>
+</form>
+
+{% endblock incentre %}
+

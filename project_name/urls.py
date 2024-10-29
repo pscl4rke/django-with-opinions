@@ -18,8 +18,9 @@ Including another URLconf
 """
 
 
+from django.urls import include, path
 from django.contrib import admin
-from django.urls import path
+import django.contrib.auth.urls as auth_urls
 
 from . import views
 
@@ -29,6 +30,7 @@ handler500 = views.error_500
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
+    path("auth/", include((auth_urls.urlpatterns, "auth"))),
     path("", views.home, name="home"),
 ]
