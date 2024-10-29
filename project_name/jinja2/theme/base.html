@@ -9,6 +9,7 @@
             body { background-color: #CCCCEE; }
             .header { background-color: #444466; color: #CCCCEE; padding: 10px; }
             .sleeve { max-width: 900px; margin: auto; }
+            .spread { display: flex; justify-content: space-between; }
             h1, p { margin: 20px 0px }
         </style>
     </head>
@@ -19,9 +20,16 @@
         <div class="header">
         {% block header %}
 
-            <div class="sleeve">
+            <div class="sleeve spread">
                 <span style="font-family: sans-serif; font-size: 200%">
+                    {% block headerleft %}
                     The New Website
+                    {% endblock headerleft %}
+                </span>
+                <span style="font-family: sans-serif">
+                    {% block headerright %}
+                    {{ request.user }}
+                    {% endblock headerright %}
                 </span>
             </div>
 
