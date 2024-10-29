@@ -19,6 +19,7 @@ Opinions:
 * Type-checking keep you sane, despite Django hating it.
 * 502 errors should look nice.
 * You'll want to subclass `User` one day.
+* Things should be spelt properly.
 
 To use:
 
