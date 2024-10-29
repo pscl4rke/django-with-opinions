@@ -144,6 +144,7 @@ AUTH_USER_MODEL = "{{ project_name }}.User"
 
 LOGIN_URL = "auth:login"
 LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
 
 
 # Internationalization

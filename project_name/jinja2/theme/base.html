@@ -30,8 +30,14 @@
                     {% block headerright %}
                     {% if request.user.is_authenticated %}
                         {{ request.user }}
+                        <form style="display: inline"
+                              action="{{ url("auth:logout") }}"
+                              method="POST">
+                            {{ csrf_input }}
+                            <input type="submit" value="Log Out" />
+                        </form>
                     {% else %}
-                        <a href="{{ url("auth:login") }}">Log In</a>
+                        <a href="{{ url("auth:login") }}"><button>Log In</button></a>
                     {% endif %}
                     {% endblock headerright %}
                 </span>
