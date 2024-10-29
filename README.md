@@ -18,6 +18,7 @@ Opinions:
 * It's good to test and get coverage stats.
 * Type-checking keep you sane, despite Django hating it.
 * 502 errors should look nice.
+* You'll want to subclass `User` one day.
 
 To use:
 
