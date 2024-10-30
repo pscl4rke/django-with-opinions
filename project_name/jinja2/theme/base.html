@@ -8,6 +8,8 @@
             html, body { height: 100%; width: 100%; }
             body { background-color: #CCCCEE; }
             .header { background-color: #444466; color: #CCCCEE; padding: 10px; }
+            .injected { margin: 5px 0px; padding: 10px; background-color: white;
+                        border: solid #444466 2px; border-radius: 10px; }
             .sleeve { max-width: 900px; margin: auto; }
             .spread { display: flex; justify-content: space-between; }
             h1, p { margin: 20px 0px }
@@ -46,6 +48,18 @@
         {% endblock header %}
         </div>
         {% endblock headertag %}
+
+        {% block injection %}
+            {% if get_messages(request) %}
+            {% for message in get_messages(request) %}
+                <div class="sleeve" style="width: 100%">
+                    <div class="injected">
+                        <div>{{ message }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+            {% endif %}
+        {% endblock injection %}
 
         {% block workspacetag %}
         <div class="workspace" style="flex-grow: 1">
