@@ -20,7 +20,7 @@ Including another URLconf
 
 from django.urls import include, path
 from django.contrib import admin
-import django.contrib.auth.urls as auth_urls
+import django.contrib.auth.views as auth_views
 
 from . import views
 
@@ -29,8 +29,18 @@ handler404 = views.error_404
 handler500 = views.error_500
 
 
+auth_urlpatterns = [
+    # The simplest way according to the docs is to import urlpatterns
+    # from contrib.auth.urls, but that includes everything for password
+    # changing and resetting, and those all use the contrib.admin page
+    # themes, and it would be a right hassle to make the themes match.
+    path("login/", auth_views.LoginView.as_view(), name="login"),
+    path("logout/", auth_views.LogoutView.as_view(), name="logout"),
+]
+
+
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("auth/", include((auth_urls.urlpatterns, "auth"))),
+    path("auth/", include((auth_urlpatterns, "auth"))),
     path("", views.home, name="home"),
 ]
