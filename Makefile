@@ -8,18 +8,18 @@ MAKEFLAGS += --no-builtin-rules
 
 usage:
 	@echo "Usage:"
-	@sed -ne 's/^/  /;/@sed/!s/## //p' $(MAKEFILE_LIST)
+	@sed -ne 's/^/| /;/@sed/!s/## //p' $(MAKEFILE_LIST) | (column -tl3 || cat)
 
 
 run-with-defaults: export DATABASE ?= sqlite3:db.sqlite3
 run-with-defaults: export DEBUG ?= True
-run-with-defaults:	## Migrate local db and run a webserver from it
+run-with-defaults: ## Migrate local db and run a webserver from it
 	./manage.py migrate
 	./manage.py runserver
 
 
 test: export DATABASE ?= sqlite3::memory:
-test:	## Run the full test suite
+test: ## Run the full test suite
 	pyflakes .
 	mypy .
 	coverage run ./manage.py test
